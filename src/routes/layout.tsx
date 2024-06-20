@@ -2,10 +2,17 @@ import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import Header from "~/components/layout/header";
+import { config } from "~/speak-config";
 
 export const onGet: RequestHandler = async ({
+  params,
+  redirect,
   cacheControl,
 }) => {
+  if (!params.lang) {
+    throw redirect(301, `/${config.defaultLocale.lang}/`);
+  }
+
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.dev/docs/caching/
   cacheControl({

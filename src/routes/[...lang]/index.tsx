@@ -1,9 +1,9 @@
 import { $, component$ } from "@builder.io/qwik";
 import {
-  Link,
   routeLoader$,
   type DocumentHead,
 } from "@builder.io/qwik-city";
+import LocLink from "~/components/i18n/loc-link";
 import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
@@ -38,7 +38,7 @@ export default component$(() => {
 
       <section class="flex gap-3">
         {productsS.value.map((product) => (
-          <Link
+          <LocLink
             href={`products/${product.id}`}
             key={product.id}
           >
@@ -61,7 +61,7 @@ export default component$(() => {
                 {product.description.slice(0, 65)}...
               </p>
             </article>
-          </Link>
+          </LocLink>
         ))}
       </section>
     </>
