@@ -4,7 +4,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <>
-      <h1>Hello, Qwik</h1>
+      <h1 class="text-2xl font-semibold">Hello, Qwik</h1>
     </>
   );
 });
