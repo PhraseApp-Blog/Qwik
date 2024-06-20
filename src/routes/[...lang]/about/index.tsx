@@ -1,7 +1,8 @@
 import { component$ } from "@builder.io/qwik";
-import { inlineTranslate } from "qwik-speak";
+import { inlineTranslate, useSpeak } from "qwik-speak";
 
 export default component$(() => {
+  useSpeak({ assets: ["about"] });
   const t = inlineTranslate();
 
   return (

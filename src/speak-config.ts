@@ -19,6 +19,6 @@ export const config: SpeakConfig = {
     },
   ],
   // Translations available in the whole app
-  assets: ["app", "nav", "about"],
+  assets: ["app", "nav"],
   runtimeAssets: [],
 };
