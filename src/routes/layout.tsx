@@ -1,6 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { routeLoader$ } from "@builder.io/qwik-city";
+import Header from "~/components/layout/header";
 
 export const onGet: RequestHandler = async ({
   cacheControl,
@@ -24,7 +25,8 @@ export const useServerTimeLoader = routeLoader$(() => {
 export default component$(() => {
   return (
     <>
-      <main class="mx-auto mt-3 max-w-[600px]">
+      <Header />
+      <main class="mx-auto mt-3 max-w-[600px] px-6">
         <Slot />
       </main>
     </>
