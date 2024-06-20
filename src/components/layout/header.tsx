@@ -16,10 +16,10 @@ export default component$(() => {
 
         <ul class="flex gap-4 text-sm font-light">
           <li>
-            <Link href="/">Latest products</Link>
+            <Link href="/">{t("nav.latestProducts")}</Link>
           </li>
           <li>
-            <Link href="/about">About us</Link>
+            <Link href="/about">{t("nav.aboutUs")}</Link>
           </li>
         </ul>
       </nav>
