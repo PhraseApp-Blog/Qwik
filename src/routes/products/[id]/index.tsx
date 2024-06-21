@@ -32,7 +32,11 @@ export default component$(() => {
       </h1>
       <div class="flex justify-between rounded-sm bg-black/20 px-3 py-2">
         <p>${product.priceInCents / 100}</p>
-        <p>{product.publishedAt}</p>
+        <p>
+          {new Date(product.publishedAt).toLocaleDateString(
+            "en-US",
+          )}
+        </p>
       </div>
       <img
         width={600}

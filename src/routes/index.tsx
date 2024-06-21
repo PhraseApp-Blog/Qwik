@@ -1,4 +1,4 @@
-import { $, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import {
   Link,
   routeLoader$,
@@ -12,19 +12,6 @@ export const useProducts = routeLoader$<
   Readonly<Product[]>
 >(() => {
   return retroHardware;
-});
-
-const toShortDate = $(function (
-  dateString: string,
-): string {
-  const date = new Date(dateString);
-  const month = String(date.getMonth() + 1).padStart(
-    2,
-    "0",
-  ); // Months are zero-based, add 1 and pad with zero
-  const day = String(date.getDate()).padStart(2, "0"); // Pad with zero
-  const year = date.getFullYear();
-  return `${year}-${month}-${day}`;
 });
 
 export default component$(() => {
@@ -55,7 +42,11 @@ export default component$(() => {
               />
               <div class="flex justify-between bg-black/20 px-2 py-1 text-sm font-light">
                 <p>${product.priceInCents / 100.0}</p>
-                <p>{toShortDate(product.publishedAt)}</p>
+                <p>
+                  {new Date(
+                    product.publishedAt,
+                  ).toLocaleDateString("en-US")}
+                </p>
               </div>
               <p class="p-2 text-xs">
                 {product.description.slice(0, 65)}...
