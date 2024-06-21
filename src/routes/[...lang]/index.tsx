@@ -14,7 +14,7 @@ export const useProducts = routeLoader$<
   return retroHardware;
 });
 
-const toShortDate = $(function (
+const toShortDate$ = $(function (
   dateString: string,
 ): string {
   const date = new Date(dateString);
@@ -55,7 +55,7 @@ export default component$(() => {
               />
               <div class="flex justify-between bg-black/20 px-2 py-1 text-sm font-light">
                 <p>${product.priceInCents / 100.0}</p>
-                <p>{toShortDate(product.publishedAt)}</p>
+                <p>{toShortDate$(product.publishedAt)}</p>
               </div>
               <p class="p-2 text-xs">
                 {product.description.slice(0, 65)}...
