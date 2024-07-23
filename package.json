@@ -25,7 +25,7 @@
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "qwik": "qwik",
-    "qwik-speak-extract": "qwik-speak-extract --supportedLangs=en-US,ar-EG --assetsPath=i18n --unusedKeys=true --runtimeAssets=runtime"
+    "i18n:extract": "qwik-speak-extract --supportedLangs=en-US,ar-EG --assetsPath=i18n --unusedKeys=true"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.7.1",
