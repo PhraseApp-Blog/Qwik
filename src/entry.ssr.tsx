@@ -17,6 +17,7 @@ import {
   type RenderToStreamOptions,
 } from "@builder.io/qwik/server";
 import { manifest } from "@qwik-client-manifest";
+import rtlDetect from "rtl-detect";
 import Root from "./root";
 import { config } from "./speak-config";
 
@@ -36,16 +37,17 @@ export function extractBase({
 }
 
 export default function (opts: RenderToStreamOptions) {
+  const lang =
+    opts.serverData?.locale || config.defaultLocale.lang;
+
   return renderToStream(<Root />, {
     manifest,
     ...opts,
     base: extractBase,
     // Use container attributes to set attributes on the html tag.
     containerAttributes: {
-      lang:
-        opts.serverData?.locale ||
-        config.defaultLocale.lang,
-      ...opts.containerAttributes,
+      lang,
+      dir: rtlDetect.getLangDir(lang),
     },
     serverData: {
       ...opts.serverData,

@@ -32,6 +32,7 @@
     "@builder.io/qwik-city": "^1.7.1",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.11",
+    "@types/rtl-detect": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
     "autoprefixer": "^10.4.14",
@@ -47,5 +48,8 @@
     "undici": "*",
     "vite": "^5.3.4",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "rtl-detect": "^1.1.2"
   }
 }
