@@ -1,3 +1,9 @@
 {
-  "appTitle": "Ettro"
+  "appTitle": "Ettro",
+  "productConditions": {
+    "likeNew": "Like New",
+    "veryGood": "Very Good",
+    "good": "Good",
+    "acceptable": "Acceptable"
+  }
 }

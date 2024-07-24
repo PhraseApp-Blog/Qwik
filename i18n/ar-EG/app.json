@@ -1,3 +1,9 @@
 {
-  "appTitle": "إترو"
+  "appTitle": "إترو",
+  "productConditions": {
+    "likeNew": "كالجديد",
+    "veryGood": "جيد جدًا",
+    "good": "جيد",
+    "acceptable": "مقبول"
+  }
 }

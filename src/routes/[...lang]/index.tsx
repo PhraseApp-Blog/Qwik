@@ -3,6 +3,10 @@ import {
   routeLoader$,
   type DocumentHead,
 } from "@builder.io/qwik-city";
+import {
+  inlineTranslate,
+  type Translation,
+} from "qwik-speak";
 import LocLink from "~/components/i18n/loc-link";
 import retroHardware, {
   type Product,
@@ -11,11 +15,26 @@ import retroHardware, {
 export const useProducts = routeLoader$<
   Readonly<Product[]>
 >((requestEvent) => {
+  const t = inlineTranslate();
+  const localizedConditions = t<Translation>(
+    "productConditions",
+    {},
+    requestEvent.locale(),
+  );
+
   const localizedProducts =
     retroHardware[
       requestEvent.locale() as keyof typeof retroHardware
     ];
-  return localizedProducts;
+  const withMappedTitles = localizedProducts.map(
+    (product) => {
+      return {
+        ...product,
+        title: `${product.title} (${localizedConditions[product.condition]})`,
+      };
+    },
+  );
+  return withMappedTitles;
 });
 
 const toShortDate$ = $(function (
