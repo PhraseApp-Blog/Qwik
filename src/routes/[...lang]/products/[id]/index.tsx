@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { useFormatNumber } from "qwik-speak";
+import { useFormatDate, useFormatNumber } from "qwik-speak";
 import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
@@ -25,6 +25,7 @@ export const useProduct = routeLoader$<
 
 export default component$(() => {
   const fn = useFormatNumber();
+  const fd = useFormatDate();
   const product = useProduct().value;
 
   if (!product) {
@@ -42,7 +43,13 @@ export default component$(() => {
             style: "currency",
           })}
         </p>
-        <p>{product.publishedAt}</p>
+        <p>
+          {fd(product.publishedAt, {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </p>
       </div>
       <img
         width={600}

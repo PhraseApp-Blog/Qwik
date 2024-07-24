@@ -6,6 +6,7 @@ import {
 import {
   inlinePlural,
   inlineTranslate,
+  useFormatDate,
   useFormatNumber,
   type Translation,
 } from "qwik-speak";
@@ -56,6 +57,7 @@ export default component$(() => {
   const t = inlineTranslate();
   const p = inlinePlural();
   const fn = useFormatNumber();
+  const fd = useFormatDate();
   const productsS = useProducts();
 
   return (
@@ -96,7 +98,11 @@ export default component$(() => {
                     },
                   )}
                 </p>
-                <p>{toShortDate$(product.publishedAt)}</p>
+                <p>
+                  {fd(product.publishedAt, {
+                    dateStyle: "short",
+                  })}
+                </p>
               </div>
               <p class="p-2 text-xs">
                 {product.description.slice(0, 65)}...
