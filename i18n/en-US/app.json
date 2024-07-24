@@ -1,8 +1,13 @@
 {
-  "appTitle": "Ettro",
+  "appTitle": "Etttro",
+  "footerText": "<strong>Etttro</strong> is a demo app made with Qwik &amp; Qwik Speak.",
   "latestProducts": {
+    "few": "",
+    "many": "",
     "one": "{{value}} Latest Product",
-    "other": "{{value}} Latest Products"
+    "other": "{{value}} Latest Products",
+    "two": "",
+    "zero": ""
   },
   "productConditions": {
     "acceptable": "Acceptable",

@@ -1,5 +1,6 @@
 {
   "appTitle": "إترو",
+  "footerText": "<strong>إترو</strong> هو تطبيق تجريبي تم تصميمه باستخدام Qwik &amp; Qwik Speak.",
   "latestProducts": {
     "few": "أحدث {{value}} منتجات",
     "many": "أحدث {{value}} منتج",

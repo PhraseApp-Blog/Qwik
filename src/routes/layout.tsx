@@ -1,6 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
+import Footer from "~/components/layout/footer";
 import Header from "~/components/layout/header";
 import { config } from "~/speak-config";
 
@@ -36,6 +37,7 @@ export default component$(() => {
       <main class="mx-auto mt-3 max-w-[600px] px-6">
         <Slot />
       </main>
+      <Footer />
     </>
   );
 });
