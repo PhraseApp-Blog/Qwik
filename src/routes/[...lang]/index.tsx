@@ -4,6 +4,7 @@ import {
   type DocumentHead,
 } from "@builder.io/qwik-city";
 import {
+  inlinePlural,
   inlineTranslate,
   type Translation,
 } from "qwik-speak";
@@ -52,13 +53,14 @@ const toShortDate$ = $(function (
 
 export default component$(() => {
   const t = inlineTranslate();
+  const p = inlinePlural();
   const productsS = useProducts();
 
   return (
     <>
       <div class="flex items-baseline justify-between">
         <h1 class="mb-4 text-2xl font-semibold">
-          {t("homePageTitle")}
+          {p(productsS.value.length, "latestProducts")}
         </h1>
 
         <p>{t("userGreeting", { name: "Hannah" })}</p>

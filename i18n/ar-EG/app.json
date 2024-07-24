@@ -1,6 +1,13 @@
 {
   "appTitle": "إترو",
-  "homePageTitle": "أحدث المنتجات",
+  "latestProducts": {
+    "few": "أحدث {{value}} منتجات",
+    "many": "أحدث {{value}} منتج",
+    "one": "أحدث منتج",
+    "other": "أحدث {{value}} منتج",
+    "two": "أحدث منتجين",
+    "zero": "لا توجد منتجات"
+  },
   "productConditions": {
     "acceptable": "مقبول",
     "good": "جيد",
