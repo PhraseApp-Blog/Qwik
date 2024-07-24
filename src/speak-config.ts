@@ -9,7 +9,7 @@ export const config: SpeakConfig = {
   supportedLocales: [
     {
       lang: "ar-EG",
-      currency: "EGP",
+      currency: "USD",
       timeZone: "Africa/Cairo",
     },
     {

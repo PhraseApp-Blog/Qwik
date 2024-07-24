@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
+import { useFormatNumber } from "qwik-speak";
 import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
@@ -23,6 +24,7 @@ export const useProduct = routeLoader$<
 });
 
 export default component$(() => {
+  const fn = useFormatNumber();
   const product = useProduct().value;
 
   if (!product) {
@@ -35,7 +37,11 @@ export default component$(() => {
         {product.title}
       </h1>
       <div class="flex justify-between rounded-sm bg-black/20 px-3 py-2">
-        <p>${product.priceInCents / 100}</p>
+        <p>
+          {fn((product.priceInCents / 100.0).toFixed(2), {
+            style: "currency",
+          })}
+        </p>
         <p>{product.publishedAt}</p>
       </div>
       <img

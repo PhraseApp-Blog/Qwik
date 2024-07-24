@@ -6,6 +6,7 @@ import {
 import {
   inlinePlural,
   inlineTranslate,
+  useFormatNumber,
   type Translation,
 } from "qwik-speak";
 import LocLink from "~/components/i18n/loc-link";
@@ -54,6 +55,7 @@ const toShortDate$ = $(function (
 export default component$(() => {
   const t = inlineTranslate();
   const p = inlinePlural();
+  const fn = useFormatNumber();
   const productsS = useProducts();
 
   return (
@@ -84,7 +86,16 @@ export default component$(() => {
                 src={`/product-img/${product.imageUrl}`}
               />
               <div class="flex justify-between bg-black/20 px-2 py-1 text-sm font-light">
-                <p>${product.priceInCents / 100.0}</p>
+                <p>
+                  {fn(
+                    (product.priceInCents / 100.0).toFixed(
+                      2,
+                    ),
+                    {
+                      style: "currency",
+                    },
+                  )}
+                </p>
                 <p>{toShortDate$(product.publishedAt)}</p>
               </div>
               <p class="p-2 text-xs">
