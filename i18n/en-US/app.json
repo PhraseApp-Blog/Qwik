@@ -1,9 +1,10 @@
 {
   "appTitle": "Ettro",
+  "homePageTitle": "Latest products",
   "productConditions": {
-    "likeNew": "Like New",
-    "veryGood": "Very Good",
+    "acceptable": "Acceptable",
     "good": "Good",
-    "acceptable": "Acceptable"
+    "likeNew": "Like New",
+    "veryGood": "Very Good"
   }
 }

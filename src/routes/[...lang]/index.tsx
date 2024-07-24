@@ -51,12 +51,13 @@ const toShortDate$ = $(function (
 });
 
 export default component$(() => {
+  const t = inlineTranslate();
   const productsS = useProducts();
 
   return (
     <>
       <h1 class="mb-4 text-2xl font-semibold">
-        Latest products
+        {t("homePageTitle")}
       </h1>
 
       <section class="flex gap-3">
