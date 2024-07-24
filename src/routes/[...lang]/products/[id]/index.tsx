@@ -4,19 +4,23 @@ import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
 
-export const useProduct = routeLoader$(
-  (requestEvent): Readonly<Product> | undefined => {
-    const product = retroHardware.find(
-      (p) => p.id === +requestEvent.params.id,
-    );
+export const useProduct = routeLoader$<
+  Readonly<Product> | undefined
+>((requestEvent) => {
+  const localizedProducts =
+    retroHardware[
+      requestEvent.locale() as keyof typeof retroHardware
+    ];
+  const product = localizedProducts.find(
+    (p) => p.id === +requestEvent.params.id,
+  );
 
-    if (!product) {
-      requestEvent.status(404);
-    }
+  if (!product) {
+    requestEvent.status(404);
+  }
 
-    return product;
-  },
-);
+  return product;
+});
 
 export default component$(() => {
   const product = useProduct().value;

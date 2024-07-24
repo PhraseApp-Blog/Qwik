@@ -10,8 +10,12 @@ import retroHardware, {
 
 export const useProducts = routeLoader$<
   Readonly<Product[]>
->(() => {
-  return retroHardware;
+>((requestEvent) => {
+  const localizedProducts =
+    retroHardware[
+      requestEvent.locale() as keyof typeof retroHardware
+    ];
+  return localizedProducts;
 });
 
 const toShortDate$ = $(function (
