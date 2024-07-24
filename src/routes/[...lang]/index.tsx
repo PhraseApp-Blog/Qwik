@@ -115,13 +115,16 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Etttro | Retro Hardware Marketplace",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Etttro is your community second-hand market for all retro electronics.",
-    },
-  ],
+export const head: DocumentHead = ({ params }) => {
+  const t = inlineTranslate();
+
+  return {
+    title: t("app.meta.title", {}, params.lang),
+    meta: [
+      {
+        name: "description",
+        content: t("app.meta.description", {}, params.lang),
+      },
+    ],
+  };
 };

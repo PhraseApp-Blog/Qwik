@@ -1,6 +1,13 @@
 import { component$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import { useFormatDate, useFormatNumber } from "qwik-speak";
+import {
+  routeLoader$,
+  type DocumentHead,
+} from "@builder.io/qwik-city";
+import {
+  inlineTranslate,
+  useFormatDate,
+  useFormatNumber,
+} from "qwik-speak";
 import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
@@ -24,12 +31,13 @@ export const useProduct = routeLoader$<
 });
 
 export default component$(() => {
+  const t = inlineTranslate();
   const fn = useFormatNumber();
   const fd = useFormatDate();
   const product = useProduct().value;
 
   if (!product) {
-    return <p>Product not found</p>;
+    return <p>{t("productDetails.notFound")}</p>;
   }
 
   return (
@@ -62,3 +70,35 @@ export default component$(() => {
     </article>
   );
 });
+
+export const head: DocumentHead = ({
+  resolveValue,
+  params,
+}) => {
+  const t = inlineTranslate();
+  const product = resolveValue(useProduct);
+
+  if (!product) {
+    return {
+      title: t(
+        "productDetails.meta.notFound",
+        {},
+        params.lang,
+      ),
+    };
+  }
+
+  return {
+    title: t(
+      "productDetails.meta.title",
+      { productTitle: product.title },
+      params.lang,
+    ),
+    meta: [
+      {
+        name: "description",
+        content: product.description,
+      },
+    ],
+  };
+};

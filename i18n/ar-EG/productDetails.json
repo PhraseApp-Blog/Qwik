@@ -1,0 +1,9 @@
+{
+  "productDetails": {
+    "meta": {
+      "notFound": "المنتج غير موجود",
+      "title": "(منتج) {{productTitle}}"
+    },
+    "notFound": "المنتج غير موجود"
+  }
+}

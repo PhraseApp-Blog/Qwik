@@ -1,4 +1,10 @@
 {
+  "app": {
+    "meta": {
+      "description": "Etttro is your community second-hand market for all retro electronics.",
+      "title": "Etttro | Retro Hardware Marketplace"
+    }
+  },
   "appTitle": "Etttro",
   "footerText": "<strong>Etttro</strong> is a demo app made with Qwik &amp; Qwik Speak.",
   "latestProducts": {
