@@ -56,9 +56,13 @@ export default component$(() => {
 
   return (
     <>
-      <h1 class="mb-4 text-2xl font-semibold">
-        {t("homePageTitle")}
-      </h1>
+      <div class="flex items-baseline justify-between">
+        <h1 class="mb-4 text-2xl font-semibold">
+          {t("homePageTitle")}
+        </h1>
+
+        <p>{t("userGreeting", { name: "Hannah" })}</p>
+      </div>
 
       <section class="flex gap-3">
         {productsS.value.map((product) => (

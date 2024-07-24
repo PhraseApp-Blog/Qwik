@@ -6,5 +6,6 @@
     "good": "جيد",
     "likeNew": "كالجديد",
     "veryGood": "جيد جدًا"
-  }
+  },
+  "userGreeting": "مرحبًا، {{name}}."
 }

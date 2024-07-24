@@ -6,5 +6,6 @@
     "good": "Good",
     "likeNew": "Like New",
     "veryGood": "Very Good"
-  }
+  },
+  "userGreeting": "Hello, {{name}}."
 }
