@@ -48,6 +48,7 @@ export default function (opts: RenderToStreamOptions) {
     containerAttributes: {
       lang,
       dir: rtlDetect.getLangDir(lang),
+      ...opts.containerAttributes,
     },
     serverData: {
       ...opts.serverData,
