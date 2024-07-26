@@ -1,4 +1,4 @@
-import { $, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import {
   routeLoader$,
   type DocumentHead,
@@ -38,19 +38,6 @@ export const useProducts = routeLoader$<
     },
   );
   return withMappedTitles;
-});
-
-const toShortDate$ = $(function (
-  dateString: string,
-): string {
-  const date = new Date(dateString);
-  const month = String(date.getMonth() + 1).padStart(
-    2,
-    "0",
-  ); // Months are zero-based, add 1 and pad with zero
-  const day = String(date.getDate()).padStart(2, "0"); // Pad with zero
-  const year = date.getFullYear();
-  return `${year}-${month}-${day}`;
 });
 
 export default component$(() => {
