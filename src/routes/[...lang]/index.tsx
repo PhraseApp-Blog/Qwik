@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import {
   routeLoader$,
   type DocumentHead,
+  type RequestHandler,
 } from "@builder.io/qwik-city";
 import {
   inlinePlural,
@@ -14,6 +15,16 @@ import LocLink from "~/components/i18n/loc-link";
 import retroHardware, {
   type Product,
 } from "~/data/retro-hardware";
+import { config } from "~/speak-config";
+
+export const onGet: RequestHandler = async ({
+  params,
+  redirect,
+}) => {
+  if (!params.lang) {
+    throw redirect(301, `/${config.defaultLocale.lang}/`);
+  }
+};
 
 export const useProducts = routeLoader$<
   Readonly<Product[]>

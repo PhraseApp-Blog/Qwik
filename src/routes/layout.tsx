@@ -6,14 +6,10 @@ import Header from "~/components/layout/header";
 import { config } from "~/speak-config";
 
 export const onGet: RequestHandler = async ({
-  params,
-  redirect,
   cacheControl,
+  params,
+  send,
 }) => {
-  if (!params.lang) {
-    throw redirect(301, `/${config.defaultLocale.lang}/`);
-  }
-
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.dev/docs/caching/
   cacheControl({
@@ -22,6 +18,14 @@ export const onGet: RequestHandler = async ({
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
+
+  if (
+    !config.supportedLocales.find(
+      (loc) => loc.lang === params.lang,
+    )
+  ) {
+    send(404, "Not Found");
+  }
 };
 
 export const useServerTimeLoader = routeLoader$(() => {
